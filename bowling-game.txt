@@ -1,0 +1,54 @@
+BOWLING GAME
+============
+
+Explanation:
+
+A game consists of 10 frames
+There are 10 pins.
+The score of a frame is the count of knocked down pin.
+A frame has 1 or 2 rolls
+If there is a strike or spare, a bonus count will be added.
+The score of strike or spare depends on the next rolls.
+
+A strike is a knock down of all 10 pins in the first try of a frame.
+The count of a strike is 10 plus the value of the next to rolls.
+A spare is a know down of all 10 pins with 2 rolls of a frame.
+The count of a spare is 10 plus the value of the next roll
+
+The the 10th frame has 2 or 3 rolls.
+If there is a strike at the first roll, there are 2 more rolls
+
+
+基本的なルール
+1ゲームは、第1フレームから第10フレームの、10回のフレームから成る。
+1回のフレームに付き、最大で2回投球できる。ただし、最終第10フレームのみ、最大で3回投球できる。
+1回のフレームの第1投で10本すべてのピンを倒すことを「ストライク」と呼び、10点を獲得するとともに、第10フレームを除いて、以降2回の投球で倒したピンの数がボーナス得点としてそのフレームの得点に加算される。すべてのピンが倒れなかった場合は、倒れなかったピンを残したまま第2投を投球する。
+第2投で残りのピンをすべて倒すことを「スペア」と呼び、10点を獲得するとともに、第10フレームを除いて、以降1回の投球で倒したピンの数がボーナス得点としてそのフレームの得点に加算される。
+第2投で10本すべてのピンを倒せなかった場合は、2回の投球で倒したピンの合計がそのフレームの得点となる。
+第10フレームでは、ストライク、またはスペアを取ると、全部で3回投球することができる。ただし、第9フレームまでにあったボーナス得点は、第10フレームのストライク、またはスペアには適用されず、単に倒したピンの数の合計のみが得点として加算される。
+
+
+
+Score examples:
+X = strike
+/ = spare
+- = miss
+
+-- -- -- -- -- -- -- -- -- --   (20 rolls: 20 miss): 0
+11 11 11 11 11 11 11 11 11 11   (20 rolls: always 1 knockdown): 20
+X 34 -- -- -- -- -- -- -- --    (19 rolls: 1 strike, 1 pair, 17 miss): 24
+5/ 3- -- -- -- -- -- -- -- --   (20 rolls: 1 spare, 1 pair, 16 miss): 16
+X X X X X X X X X X X X         (12 rolls: 12 strikes) = 10 frames * 30 points = 300
+9- 9- 9- 9- 9- 9- 9- 9- 9- 9-   (20 rolls: 10 pairs of 9 and miss) = 10 frames * 9 points = 90
+5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5  (21 rolls: 10 pairs of 5 and spare, with a final 5) = 10 frames * 15 points = 150
+
+Online score calculator:
+https://www.bowlinggenius.com/
+
+
+
+
+
+Run karma tests:
+
+npm test
